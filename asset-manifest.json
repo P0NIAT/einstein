@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/einstein/static/css/main.e505fd03.css",
+    "main.js": "/einstein/static/js/main.4339e3a8.js",
+    "static/js/787.ce2bca06.chunk.js": "/einstein/static/js/787.ce2bca06.chunk.js",
+    "index.html": "/einstein/index.html",
+    "main.e505fd03.css.map": "/einstein/static/css/main.e505fd03.css.map",
+    "main.4339e3a8.js.map": "/einstein/static/js/main.4339e3a8.js.map",
+    "787.ce2bca06.chunk.js.map": "/einstein/static/js/787.ce2bca06.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e505fd03.css",
+    "static/js/main.4339e3a8.js"
+  ]
+}
