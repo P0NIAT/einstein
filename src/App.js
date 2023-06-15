@@ -72,7 +72,7 @@ function App() {
 				<input
 					onChange={keyHandler}
 					type='text'
-					placeholder='enter API KEY and hit Enter'
+					placeholder='enter API KEY'
 				/>
 			</div>
 
