@@ -69,11 +69,15 @@ function App() {
 			<div className='info'>
 				<h1>Ask Einstein</h1>
 				<p>Ask a question, click Einstein and find the answer!</p>
-				<input
-					onChange={keyHandler}
-					type='text'
-					placeholder='enter API KEY'
-				/>
+				{answer ? (
+					''
+				) : (
+					<input
+						onChange={keyHandler}
+						type='text'
+						placeholder='enter API KEY'
+					/>
+				)}
 			</div>
 
 			<div className='head-img'>
