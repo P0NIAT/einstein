@@ -1,25 +1,30 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import img1 from './img/einstein.png';
+
+console.log();
 
 function App() {
 	const [headActive, setHeadActive] = useState(false);
 	const [error, setError] = useState('');
 	const [answer, setAnswer] = useState('');
 	const [input, setInput] = useState('');
+	const [apiKey, setApiKey] = useState('');
 
 	const shakeHead = () => {
 		setHeadActive(true);
 		setTimeout(intupCheck, 1000);
 	};
-	const inputHandler = (event) => {
-		setInput(event.target.value);
-	};
+
+	const inputHandler = (event) => setInput(event.target.value);
+	const keyHandler = (event) => setApiKey(event.target.value);
 
 	const giveAnswer = async () => {
 		const options = {
 			method: 'POST',
 			headers: {
-				Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
+				// Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
+				Authorization: `Bearer ${apiKey}`,
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify({
@@ -36,8 +41,8 @@ function App() {
 			);
 			const data = await res.json();
 			setAnswer(data.choices[0].message.content);
-		} catch (error) {
-			console.log(error);
+		} catch (err) {
+			setError(err);
 		}
 	};
 
@@ -55,21 +60,32 @@ function App() {
 		setHeadActive(false);
 	};
 
+	useEffect(() => {
+		console.log(apiKey);
+	}, [apiKey]);
+
 	return (
 		<div className='wrapper'>
 			<div className='info'>
 				<h1>Ask Einstein</h1>
 				<p>Ask a question, click Einstein and find the answer!</p>
+				<input
+					onChange={keyHandler}
+					type='text'
+					placeholder='enter API KEY and hit Enter'
+				/>
 			</div>
 
-			<div
-				className={`head-img ${headActive ? 'shake-animation' : ''}`}
-				onClick={shakeHead}>
-				<img src='./img/einstein.webp' alt='Albert Einstein' />
+			<div className='head-img'>
+				<img
+					className={headActive ? 'shake-animation' : ''}
+					src={img1}
+					onClick={shakeHead}
+					alt='Albert Einstein'
+				/>
 			</div>
 
 			<div className='question-area'>
-				<h2>Ask a question:</h2>
 				<input type='text' onChange={inputHandler} />
 				<p className='answer'>{answer}</p>
 				<p className='error'>{error}</p>
