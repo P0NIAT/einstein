@@ -9,9 +9,7 @@ function App() {
 	const [error, setError] = useState('');
 	const [answer, setAnswer] = useState('');
 	const [input, setInput] = useState('');
-	const [apiKey, setApiKey] = useState(
-		`sk-f74ZDXepUQFx0rCHmrBNT${process.env.REACT_APP_API_KEY}`
-	);
+	const [apiKey, setApiKey] = useState(`sk-${process.env.REACT_APP_API_KEY}`);
 
 	const shakeHead = () => {
 		setHeadActive(true);
