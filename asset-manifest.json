@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/einstein/static/css/main.a49bfc10.css",
-    "main.js": "/einstein/static/js/main.ca38d2f9.js",
+    "main.js": "/einstein/static/js/main.67e9573c.js",
     "static/js/787.ce2bca06.chunk.js": "/einstein/static/js/787.ce2bca06.chunk.js",
     "static/media/einstein.png": "/einstein/static/media/einstein.f4e62a6a624f0407b26f.png",
     "index.html": "/einstein/index.html",
     "main.a49bfc10.css.map": "/einstein/static/css/main.a49bfc10.css.map",
-    "main.ca38d2f9.js.map": "/einstein/static/js/main.ca38d2f9.js.map",
+    "main.67e9573c.js.map": "/einstein/static/js/main.67e9573c.js.map",
     "787.ce2bca06.chunk.js.map": "/einstein/static/js/787.ce2bca06.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a49bfc10.css",
-    "static/js/main.ca38d2f9.js"
+    "static/js/main.67e9573c.js"
   ]
 }
