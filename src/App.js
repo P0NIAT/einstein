@@ -5,11 +5,13 @@ import img1 from './img/einstein.png';
 console.log();
 
 function App() {
+	const key = `sk-${process.env.REACT_APP_API_KEY}`;
 	const [headActive, setHeadActive] = useState(false);
 	const [error, setError] = useState('');
 	const [answer, setAnswer] = useState('');
 	const [input, setInput] = useState('');
-	const [apiKey, setApiKey] = useState(`sk-${process.env.REACT_APP_API_KEY}`);
+	const [apiKey, setApiKey] = useState(key);
+	const [tokens, setTokens] = useState(100);
 
 	const shakeHead = () => {
 		setHeadActive(true);
@@ -18,19 +20,22 @@ function App() {
 
 	const inputHandler = (event) => setInput(event.target.value);
 	const keyHandler = (event) => setApiKey(event.target.value);
+	const apiKeyHandler = (event) => {
+		const value = Number(event.target.value.replace(/\D/g, ''));
+		setTokens(value);
+	};
 
 	const giveAnswer = async () => {
 		const options = {
 			method: 'POST',
 			headers: {
 				Authorization: `Bearer ${apiKey}`,
-				// Authorization: `Bearer ${apiKey}`,
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify({
 				model: 'gpt-3.5-turbo',
 				messages: [{ role: 'user', content: input }],
-				max_tokens: 100,
+				max_tokens: tokens,
 			}),
 		};
 
@@ -61,8 +66,8 @@ function App() {
 	};
 
 	useEffect(() => {
-		console.log(apiKey);
-	}, [apiKey]);
+		console.log(apiKey, tokens);
+	}, [apiKey, tokens]);
 
 	return (
 		<div className='wrapper'>
@@ -78,6 +83,16 @@ function App() {
 						placeholder='enter API KEY'
 					/>
 				)}
+				<hr />
+				{apiKey === key ? (
+					''
+				) : (
+					<input
+						onChange={apiKeyHandler}
+						type='text'
+						placeholder='Tokens? 1-4000'
+					/>
+				)}
 			</div>
 
 			<div className='head-img'>
@@ -91,7 +106,10 @@ function App() {
 
 			<div className='question-area'>
 				<input type='text' onChange={inputHandler} />
-				<p className='answer'>{answer}</p>
+				<p className='answer'>
+					{answer ? <span>Answer: </span> : ''}
+					{answer}
+				</p>
 				<p className='error'>{error}</p>
 			</div>
 		</div>
