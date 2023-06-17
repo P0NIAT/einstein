@@ -9,7 +9,9 @@ function App() {
 	const [error, setError] = useState('');
 	const [answer, setAnswer] = useState('');
 	const [input, setInput] = useState('');
-	const [apiKey, setApiKey] = useState('');
+	const [apiKey, setApiKey] = useState(
+		`sk-f74ZDXepUQFx0rCHmrBNT${process.env.REACT_APP_API_KEY}`
+	);
 
 	const shakeHead = () => {
 		setHeadActive(true);
@@ -23,8 +25,8 @@ function App() {
 		const options = {
 			method: 'POST',
 			headers: {
-				// Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
 				Authorization: `Bearer ${apiKey}`,
+				// Authorization: `Bearer ${apiKey}`,
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify({
