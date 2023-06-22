@@ -65,9 +65,7 @@ function App() {
 		setHeadActive(false);
 	};
 
-	useEffect(() => {
-		console.log(apiKey, tokens);
-	}, [apiKey, tokens]);
+	useEffect(() => {}, [apiKey, tokens]);
 
 	return (
 		<div className='wrapper'>
