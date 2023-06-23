@@ -1,6 +1,6 @@
 {
-	"homepage": "https://p0niat.github.io/einstein",
 	"name": "einstein-gpt",
+	"homepage": "https://p0niat.github.io/einstein",
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {

@@ -76,6 +76,7 @@ function App() {
 					''
 				) : (
 					<input
+						name='key'
 						onChange={keyHandler}
 						type='text'
 						placeholder='enter API KEY'
@@ -86,6 +87,7 @@ function App() {
 					''
 				) : (
 					<input
+						name='token'
 						onChange={apiKeyHandler}
 						type='text'
 						placeholder='Tokens? 1-4000'
@@ -103,7 +105,7 @@ function App() {
 			</div>
 
 			<div className='question-area'>
-				<input type='text' onChange={inputHandler} />
+				<input name='question' type='text' onChange={inputHandler} />
 				<p className='answer'>
 					{answer ? <span>Answer: </span> : ''}
 					{answer}
